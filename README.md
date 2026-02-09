@@ -79,60 +79,6 @@ O foco principal do redesign foi **Modernidade, Acessibilidade e Transparência*
 
 ---
 
-## 📁 Estrutura do Projeto
-
-```
-assefe_site/
-├── css/
-│   └── styles.css          # Estilos personalizados (~2500+ linhas)
-├── js/
-│   └── main.js             # JavaScript modular (~560 linhas)
-├── images/
-│   ├── logo.png
-│   ├── clube_assefe.png
-│   └── ...                 # Imagens do projeto
-├── index.html              # Página principal
-├── institucional.html      # Página institucional
-├── eventos.html            # Página de eventos
-├── aposentados.html        # Espaço do aposentado
-├── mes-a-mes.html          # Relatório mensal de manutenções
-└── README.md               # Documentação
-```
-
----
-
-## 🎨 Paleta de Cores
-
-| Cor | Hex | Uso |
-|-----|-----|-----|
-| ![#1e40af](https://via.placeholder.com/15/1e40af/1e40af.png) | `#1e40af` | Azul Primário |
-| ![#3b82f6](https://via.placeholder.com/15/3b82f6/3b82f6.png) | `#3b82f6` | Azul Secundário |
-| ![#10b981](https://via.placeholder.com/15/10b981/10b981.png) | `#10b981` | Verde (Sucesso) |
-| ![#f59e0b](https://via.placeholder.com/15/f59e0b/f59e0b.png) | `#f59e0b` | Amarelo (Destaque) |
-| ![#1e293b](https://via.placeholder.com/15/1e293b/1e293b.png) | `#1e293b` | Cinza Escuro (Footer) |
-
----
-
-## 🔧 Como Rodar Localmente
-
-1. Clone o repositório:
-```bash
-git clone https://github.com/Amaple28/assefe_site.git
-```
-
-2. Abra o arquivo `index.html` no navegador ou use um servidor local:
-```bash
-# Com Python
-python -m http.server 8000
-
-# Com Node.js
-npx serve
-```
-
-3. Acesse `http://localhost:8000`
-
----
-
 ## 📱 Responsividade
 
 O site foi desenvolvido com abordagem **mobile-first** e testado nos seguintes breakpoints:
@@ -143,29 +89,6 @@ O site foi desenvolvido com abordagem **mobile-first** e testado nos seguintes b
 
 ---
 
-## 🌟 Próximos Passos
-
-- [ ] Implementar sistema de busca global
-- [ ] Adicionar página de Convênios
-- [ ] Integrar formulário de contato
-- [ ] Implementar PWA para acesso offline
-- [ ] Adicionar animações com Intersection Observer
-
----
-
 ## 👩‍💻 Desenvolvido por
 
 **Maisa Rodrigues**
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/maisaourodrigues)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Amaple28)
-
----
-
-## 📄 Licença
-
-Este projeto foi desenvolvido para fins de portfolio e demonstração de habilidades em desenvolvimento frontend e UX/UI Design.
-
----
-
-> *"Transformando a experiência digital dos servidores do Senado Federal"* 🏛️

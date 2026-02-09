@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos - Assefe</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Barra de Acessibilidade -->
+    <div class="accessibility-bar">
+        <div class="flex items-center gap-4">
+            <span class="cursor-pointer hover:underline">
+                <i class="fas fa-universal-access mr-1"></i> Acessibilidade
+            </span>
+        </div>
+        <div class="controls">
+            <div class="font-control">
+                <span>Tamanho:</span>
+                <input type="range" min="12" max="24" value="16" class="font-slider" id="fontSlider">
+            </div>
+            <button onclick="toggleContrast()" class="hover:text-blue-600">
+                <i class="fas fa-adjust mr-1"></i> Contraste
+            </button>
+        </div>
+    </div>
+
+    <!-- Header Principal -->
+    <header class="header">
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Assefe Logo" class="w-15 h-20 py-2">
+                </a>
+            </div>
+
+            <!-- Navegação Desktop -->
+            <nav class="nav-desktop">
+                <a href="index.html">Home</a>
+                
+                <!-- Dropdown Lazer -->
+                <div class="dropdown">
+                    <button class="dropdown-btn">
+                        Lazer <i class="fas fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Piscinas</a>
+                        <a href="#">Esportes</a>
+                        <a href="#">Quadras</a>
+                        <a href="#">Churrasqueira</a>
+                    </div>
+                </div>
+                
+                <a href="institucional.html">Institucional</a>
+                <a href="#">Convênios</a>
+                <a href="eventos.html" class="text-blue-600 font-semibold">Eventos</a>
+                <a href="aposentados.html">Aposentados</a>
+                
+            </nav>
+
+            <!-- Ações do Header -->
+            <div class="flex items-center gap-3">
+                <i class="fas fa-search text-gray-400 cursor-pointer hover:text-blue-600"></i>
+                <a href="#" class="btn btn-primary hidden sm:inline-flex">Associe-se</a>
+                
+                <!-- Botão Menu Mobile -->
+                <button id="mobileMenuButton" class="mobile-menu-btn" aria-controls="mobileMenu" aria-expanded="false" aria-label="Abrir menu">
+                    <i id="mobileMenuIcon" class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Overlay Menu Mobile -->
+        <div id="mobileMenuOverlay" class="mobile-menu-overlay" aria-hidden="true"></div>
+
+        <!-- Menu Mobile -->
+        <nav id="mobileMenu" class="mobile-menu">
+            <div class="mobile-menu-content">
+                <a href="index.html">Home</a>
+
+                <!-- Submenu Lazer -->
+                <details class="mobile-submenu">
+                    <summary>
+                        <span>Lazer</span>
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </summary>
+                    <div class="mobile-submenu-content">
+                        <a href="#">Piscinas</a>
+                        <a href="#">Esportes</a>
+                        <a href="#">Quadras</a>
+                        <a href="#">Churrasqueira</a>
+                    </div>
+                </details>
+
+                <a href="institucional.html">Institucional</a>
+                <a href="#">Convênios</a>
+                <a href="eventos.html" class="text-blue-600 font-semibold">Eventos</a>
+                <a href="aposentados.html">Aposentados</a>
+                
+                
+                <!-- Botão Associe-se no Mobile -->
+                <div class="pt-4 border-t border-gray-100 mt-4">
+                    <a href="#" class="btn btn-primary w-full justify-center">Associe-se</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Banner da Página -->
+    <section class="page-banner hero-gradient text-white">
+        <div class="max-w-7xl mx-auto px-4 md:px-20 py-16 text-center">
+            <nav class="breadcrumb fade-in-up">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right mx-2 text-xs opacity-60"></i>
+                <span>Eventos</span>
+            </nav>
+            <h1 class="text-4xl md:text-5xl font-extrabold mt-4 fade-in-up delay-100">Eventos</h1>
+            <p class="text-xl opacity-90 mt-4 max-w-2xl mx-auto fade-in-up delay-200">
+                Confira a programação de eventos e atividades da Assefe
+            </p>
+        </div>
+    </section>
+
+    <!-- Filtros de Eventos -->
+    <section class="bg-white border-b border-gray-200 sticky top-20 z-40">
+        <div class="max-w-7xl mx-auto px-4 md:px-20">
+            <nav class="internal-nav">
+                <a href="#proximos" class="internal-nav-link active">
+                    <i class="fas fa-calendar-check"></i> Próximos Eventos
+                </a>
+                <a href="#recorrentes" class="internal-nav-link">
+                    <i class="fas fa-sync-alt"></i> Eventos Recorrentes
+                </a>
+                <a href="#passados" class="internal-nav-link">
+                    <i class="fas fa-history"></i> Eventos Passados
+                </a>
+                <a href="#galeria" class="internal-nav-link">
+                    <i class="fas fa-images"></i> Galeria
+                </a>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Próximos Eventos -->
+    <section id="proximos" class="section bg-white">
+        <div class="section-container">
+            <h2 class="section-title fade-in-up">
+                <i class="fas fa-calendar-check text-blue-600"></i> Próximos Eventos
+            </h2>
+            <p class="section-subtitle mb-10 fade-in-up delay-100">Não perca as próximas atividades programadas</p>
+            
+            <div class="events-grid">
+                
+                <!-- Evento 1 - Carnaval -->
+                <article class="event-card event-card-featured fade-in-up">
+                    <div class="event-date-badge">
+                        <span class="event-day">28</span>
+                        <span class="event-month">FEV</span>
+                    </div>
+                    <div class="event-image event-image-carnival">
+                        <i class="fas fa-mask"></i>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-meta">
+                            <span class="event-tag event-tag-special">
+                                <i class="fas fa-star"></i> Destaque
+                            </span>
+                            <span class="event-time">
+                                <i class="fas fa-clock"></i> 14h às 22h
+                            </span>
+                        </div>
+                        <h3 class="event-title">Carnaval Assefe 2026</h3>
+                        <p class="event-description">
+                            Venha curtir o Carnaval com a família! Música ao vivo, desfile de fantasias, 
+                            brincadeiras para crianças e muito mais. Matinê infantil a partir das 14h.
+                        </p>
+                        <div class="event-location">
+                            <i class="fas fa-map-marker-alt"></i> Sede Social - Área de Eventos
+                        </div>
+                        <a href="#" class="event-btn">
+                            <i class="fas fa-ticket-alt"></i> Inscrever-se
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Evento 2 - Dia da Mulher -->
+                <article class="event-card fade-in-up delay-100">
+                    <div class="event-date-badge">
+                        <span class="event-day">08</span>
+                        <span class="event-month">MAR</span>
+                    </div>
+                    <div class="event-image event-image-women">
+                        <i class="fas fa-venus"></i>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-meta">
+                            <span class="event-tag event-tag-celebration">
+                                <i class="fas fa-heart"></i> Celebração
+                            </span>
+                            <span class="event-time">
+                                <i class="fas fa-clock"></i> 10h às 18h
+                            </span>
+                        </div>
+                        <h3 class="event-title">Dia Internacional da Mulher</h3>
+                        <p class="event-description">
+                            Programação especial em homenagem às mulheres associadas. Palestras, 
+                            oficinas de bem-estar, sorteios e confraternização.
+                        </p>
+                        <div class="event-location">
+                            <i class="fas fa-map-marker-alt"></i> Salão de Eventos
+                        </div>
+                        <a href="#" class="event-btn">
+                            <i class="fas fa-ticket-alt"></i> Inscrever-se
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Evento 3 - Páscoa -->
+                <article class="event-card fade-in-up delay-200">
+                    <div class="event-date-badge">
+                        <span class="event-day">05</span>
+                        <span class="event-month">ABR</span>
+                    </div>
+                    <div class="event-image event-image-easter">
+                        <i class="fas fa-egg"></i>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-meta">
+                            <span class="event-tag event-tag-kids">
+                                <i class="fas fa-child"></i> Infantil
+                            </span>
+                            <span class="event-time">
+                                <i class="fas fa-clock"></i> 9h às 13h
+                            </span>
+                        </div>
+                        <h3 class="event-title">Caça aos Ovos de Páscoa</h3>
+                        <p class="event-description">
+                            Diversão garantida para a criançada! Caça aos ovos de chocolate, 
+                            pintura facial, brinquedos infláveis e lanche especial.
+                        </p>
+                        <div class="event-location">
+                            <i class="fas fa-map-marker-alt"></i> Área Verde - Gramado
+                        </div>
+                        <a href="#" class="event-btn">
+                            <i class="fas fa-ticket-alt"></i> Inscrever-se
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Evento 4 - Festa Junina -->
+                <article class="event-card fade-in-up">
+                    <div class="event-date-badge">
+                        <span class="event-day">21</span>
+                        <span class="event-month">JUN</span>
+                    </div>
+                    <div class="event-image event-image-junina">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-meta">
+                            <span class="event-tag event-tag-tradition">
+                                <i class="fas fa-hat-cowboy"></i> Tradição
+                            </span>
+                            <span class="event-time">
+                                <i class="fas fa-clock"></i> 18h às 23h
+                            </span>
+                        </div>
+                        <h3 class="event-title">Arraiá da Assefe 2026</h3>
+                        <p class="event-description">
+                            A tradicional Festa Junina da Assefe! Quadrilha, forró, comidas típicas, 
+                            pescaria, correio elegante e fogueira (simbólica).
+                        </p>
+                        <div class="event-location">
+                            <i class="fas fa-map-marker-alt"></i> Área de Eventos
+                        </div>
+                        <a href="#" class="event-btn">
+                            <i class="fas fa-ticket-alt"></i> Inscrever-se
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Eventos Recorrentes -->
+    <section id="recorrentes" class="section bg-gray-50">
+        <div class="section-container">
+            <h2 class="section-title fade-in-up">
+                <i class="fas fa-sync-alt text-green-600"></i> Eventos Recorrentes
+            </h2>
+            <p class="section-subtitle mb-10 fade-in-up delay-100">Atividades que acontecem regularmente na Assefe</p>
+            
+            <div class="recurring-events-grid">
+                
+                <!-- Evento Recorrente 1 -->
+                <div class="recurring-event-card fade-in-up">
+                    <div class="recurring-event-icon bg-blue-100 text-blue-600">
+                        <i class="fas fa-swimmer"></i>
+                    </div>
+                    <div class="recurring-event-info">
+                        <h3>Hidroginástica</h3>
+                        <p>Terças e Quintas | 7h e 8h</p>
+                        <span class="recurring-event-location">
+                            <i class="fas fa-map-marker-alt"></i> Piscina Coberta
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Evento Recorrente 2 -->
+                <div class="recurring-event-card fade-in-up delay-100">
+                    <div class="recurring-event-icon bg-green-100 text-green-600">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="recurring-event-info">
+                        <h3>Ginástica para Terceira Idade</h3>
+                        <p>Segunda, Quarta e Sexta | 8h</p>
+                        <span class="recurring-event-location">
+                            <i class="fas fa-map-marker-alt"></i> Quadra Coberta
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Evento Recorrente 3 -->
+                <div class="recurring-event-card fade-in-up delay-200">
+                    <div class="recurring-event-icon bg-purple-100 text-purple-600">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="recurring-event-info">
+                        <h3>Aulas de Dança de Salão</h3>
+                        <p>Quartas | 19h às 21h</p>
+                        <span class="recurring-event-location">
+                            <i class="fas fa-map-marker-alt"></i> Salão Social
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Evento Recorrente 4 -->
+                <div class="recurring-event-card fade-in-up">
+                    <div class="recurring-event-icon bg-yellow-100 text-yellow-600">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <div class="recurring-event-info">
+                        <h3>Futebol Society</h3>
+                        <p>Sábados | 8h às 12h</p>
+                        <span class="recurring-event-location">
+                            <i class="fas fa-map-marker-alt"></i> Campo Society
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Evento Recorrente 5 -->
+                <div class="recurring-event-card fade-in-up delay-100">
+                    <div class="recurring-event-icon bg-red-100 text-red-600">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                    <div class="recurring-event-info">
+                        <h3>Torneio de Xadrez</h3>
+                        <p>1º Sábado do mês | 14h</p>
+                        <span class="recurring-event-location">
+                            <i class="fas fa-map-marker-alt"></i> Sala de Jogos
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Evento Recorrente 6 -->
+                <div class="recurring-event-card fade-in-up delay-200">
+                    <div class="recurring-event-icon bg-indigo-100 text-indigo-600">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="recurring-event-info">
+                        <h3>Almoço do Servidor</h3>
+                        <p>Última Sexta do mês | 12h</p>
+                        <span class="recurring-event-location">
+                            <i class="fas fa-map-marker-alt"></i> Restaurante
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Eventos Passados -->
+    <section id="passados" class="section bg-white">
+        <div class="section-container">
+            <h2 class="section-title fade-in-up">
+                <i class="fas fa-history text-gray-500"></i> Eventos Passados
+            </h2>
+            <p class="section-subtitle mb-10 fade-in-up delay-100">Relembre os momentos especiais que já vivemos</p>
+            
+            <div class="past-events-grid">
+                
+                <!-- Evento Passado 1 -->
+                <article class="past-event-card fade-in-up">
+                    <div class="past-event-image">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <div class="past-event-content">
+                        <span class="past-event-date">15 de Outubro de 2025</span>
+                        <h3>Dia das Crianças</h3>
+                        <p>Celebração especial com brinquedos, lanches e muitas surpresas para os pequenos.</p>
+                    </div>
+                </article>
+
+                <!-- Evento Passado 2 -->
+                <article class="past-event-card fade-in-up delay-100">
+                    <div class="past-event-image">
+                        <i class="fas fa-ice-cream"></i>
+                    </div>
+                    <div class="past-event-content">
+                        <span class="past-event-date">20 de Setembro de 2025</span>
+                        <h3>Assefe 58 Anos</h3>
+                        <p>Comemoração dos 58 anos da associação resgatando o espírito comunitário.</p>
+                    </div>
+                </article>
+
+                <!-- Evento Passado 3 -->
+                <article class="past-event-card fade-in-up delay-200">
+                    <div class="past-event-image">
+                        <i class="fas fa-flag-usa"></i>
+                    </div>
+                    <div class="past-event-content">
+                        <span class="past-event-date">07 de Setembro de 2025</span>
+                        <h3>Festa da Independência</h3>
+                        <p>Celebração patriótica com desfile cívico e apresentações culturais.</p>
+                    </div>
+                </article>
+
+                <!-- Evento Passado 4 -->
+                <article class="past-event-card fade-in-up">
+                    <div class="past-event-image">
+                        <i class="fas fa-male"></i>
+                    </div>
+                    <div class="past-event-content">
+                        <span class="past-event-date">11 de Agosto de 2025</span>
+                        <h3>Dia dos Pais</h3>
+                        <p>Homenagem especial aos pais associados com almoço e programação diversa.</p>
+                    </div>
+                </article>
+
+                <!-- Evento Passado 5 -->
+                <article class="past-event-card fade-in-up delay-100">
+                    <div class="past-event-image">
+                        <i class="fas fa-fire-alt"></i>
+                    </div>
+                    <div class="past-event-content">
+                        <span class="past-event-date">22 de Junho de 2025</span>
+                        <h3>Arraiá da Assefe 2025</h3>
+                        <p>Festa junina tradicional com quadrilha, forró e comidas típicas.</p>
+                    </div>
+                </article>
+
+                <!-- Evento Passado 6 -->
+                <article class="past-event-card fade-in-up delay-200">
+                    <div class="past-event-image">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <div class="past-event-content">
+                        <span class="past-event-date">11 de Maio de 2025</span>
+                        <h3>Dia das Mães</h3>
+                        <p>Almoço especial e homenagens às mães associadas da Assefe.</p>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="text-center mt-10 fade-in-up">
+                <a href="#" class="btn btn-secondary">
+                    <i class="fas fa-ellipsis-h"></i> Ver Mais Eventos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria de Fotos -->
+    <section id="galeria" class="section bg-gray-50">
+        <div class="section-container">
+            <h2 class="section-title fade-in-up">
+                <i class="fas fa-images text-purple-600"></i> Galeria de Fotos
+            </h2>
+            <p class="section-subtitle mb-10 fade-in-up delay-100">Registros dos momentos especiais em nossos eventos</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in-up">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-image"></i>
+                        <span>Carnaval 2025</span>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-item-tall fade-in-up delay-100">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-image"></i>
+                        <span>Festa Junina 2025</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in-up delay-200">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-image"></i>
+                        <span>Dia das Crianças</span>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-item-wide fade-in-up">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-image"></i>
+                        <span>Aniversário 58 Anos</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in-up delay-100">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-image"></i>
+                        <span>Páscoa 2025</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in-up delay-200">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-image"></i>
+                        <span>Dia das Mães</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-10 fade-in-up">
+                <a href="#" class="btn btn-secondary">
+                    <i class="fas fa-th"></i> Ver Galeria Completa
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA - Sugira um Evento -->
+    <section class="section hero-gradient text-white">
+        <div class="section-container text-center">
+            <h2 class="text-3xl md:text-4xl font-extrabold fade-in-up">Tem Sugestões de Eventos?</h2>
+            <p class="text-xl opacity-90 mt-4 max-w-2xl mx-auto fade-in-up delay-100">
+                Queremos ouvir você! Envie suas ideias para tornar nossas programações ainda melhores.
+            </p>
+            <div class="mt-8 flex flex-wrap justify-center gap-4 fade-in-up delay-200">
+                <a href="mailto:eventos@assefe.com.br" class="btn btn-cta text-lg px-8 py-4">
+                    <i class="fas fa-envelope"></i> Enviar Sugestão
+                </a>
+                <a href="https://wa.me/5561999024446" target="_blank" class="btn btn-cta-outline text-lg px-8 py-4">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Logo e Descrição -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="images/logo.png" alt="Assefe Logo" class="w-12 h-12">
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Associação dos Servidores do Senado Federal.
+                    </p>
+                </div>
+
+                <!-- Links Rápidos -->
+                <div>
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="institucional.html">Institucional</a></li>
+                        <li></li>
+                        <li><a href="eventos.html">Eventos</a></li>
+                        <li><a href="aposentados.html">Aposentados</a></li>
+                    </ul>
+                </div>
+
+                <!-- Redes Sociais -->
+                <div>
+                    <h3>Redes Sociais</h3>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Buscar -->
+                <div>
+                    <h3>Buscar</h3>
+                    <form class="footer-search" action="#" method="get">
+                        <input type="search" name="q" placeholder="Pesquise..." />
+                        <button type="submit" aria-label="Buscar">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                © <script>document.write(new Date().getFullYear());</script> 
+                Assefe - Associação dos Servidores do Senado Federal. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5561999024446" target="_blank" class="whatsapp-float" aria-label="Contato via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

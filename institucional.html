@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institucional - Assefe</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Barra de Acessibilidade -->
+    <div class="accessibility-bar">
+        <div class="flex items-center gap-4">
+            <span class="cursor-pointer hover:underline">
+                <i class="fas fa-universal-access mr-1"></i> Acessibilidade
+            </span>
+        </div>
+        <div class="controls">
+            <div class="font-control">
+                <span>Tamanho:</span>
+                <input type="range" min="12" max="24" value="16" class="font-slider" id="fontSlider">
+            </div>
+            <button onclick="toggleContrast()" class="hover:text-blue-600">
+                <i class="fas fa-adjust mr-1"></i> Contraste
+            </button>
+        </div>
+    </div>
+
+    <!-- Header Principal -->
+    <header class="header">
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Assefe Logo" class="w-15 h-20 py-2">
+                </a>
+            </div>
+
+            <!-- Navegação Desktop -->
+            <nav class="nav-desktop">
+                <a href="index.html">Home</a>
+                
+                <!-- Dropdown Lazer -->
+                <div class="dropdown">
+                    <button class="dropdown-btn">
+                        Lazer <i class="fas fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Piscinas</a>
+                        <a href="#">Esportes</a>
+                        <a href="#">Quadras</a>
+                        <a href="#">Churrasqueira</a>
+                    </div>
+                </div>
+                
+                <a href="institucional.html" class="text-blue-600 font-semibold">Institucional</a>
+                <a href="#">Convênios</a>
+                <a href="eventos.html">Eventos</a>
+                <a href="aposentados.html">Aposentados</a>
+                
+            </nav>
+
+            <!-- Ações do Header -->
+            <div class="flex items-center gap-3">
+                <i class="fas fa-search text-gray-400 cursor-pointer hover:text-blue-600"></i>
+                <a href="#" class="btn btn-primary hidden sm:inline-flex">Associe-se</a>
+                
+                <!-- Botão Menu Mobile -->
+                <button id="mobileMenuButton" class="mobile-menu-btn" aria-controls="mobileMenu" aria-expanded="false" aria-label="Abrir menu">
+                    <i id="mobileMenuIcon" class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Overlay Menu Mobile -->
+        <div id="mobileMenuOverlay" class="mobile-menu-overlay" aria-hidden="true"></div>
+
+        <!-- Menu Mobile -->
+        <nav id="mobileMenu" class="mobile-menu">
+            <div class="mobile-menu-content">
+                <a href="index.html">Home</a>
+
+                <!-- Submenu Lazer -->
+                <details class="mobile-submenu">
+                    <summary>
+                        <span>Lazer</span>
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </summary>
+                    <div class="mobile-submenu-content">
+                        <a href="#">Piscinas</a>
+                        <a href="#">Esportes</a>
+                        <a href="#">Quadras</a>
+                        <a href="#">Churrasqueira</a>
+                    </div>
+                </details>
+
+                <a href="institucional.html" class="text-blue-600 font-semibold">Institucional</a>
+                <a href="#">Convênios</a>
+                <a href="eventos.html">Eventos</a>
+                <a href="aposentados.html">Aposentados</a>
+                
+                
+                <!-- Botão Associe-se no Mobile -->
+                <div class="pt-4 border-t border-gray-100 mt-4">
+                    <a href="#" class="btn btn-primary w-full justify-center">Associe-se</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Banner da Página -->
+    <section class="page-banner hero-gradient text-white">
+        <div class="max-w-7xl mx-auto px-4 md:px-20 py-16 text-center">
+            <nav class="breadcrumb fade-in-up">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right mx-2 text-xs opacity-60"></i>
+                <span>Institucional</span>
+            </nav>
+            <h1 class="text-4xl md:text-5xl font-extrabold mt-4 fade-in-up delay-100">Institucional</h1>
+            <p class="text-xl opacity-90 mt-4 max-w-2xl mx-auto fade-in-up delay-200">
+                Conheça a história, missão e a equipe que faz a Assefe acontecer
+            </p>
+        </div>
+    </section>
+
+    <!-- Navegação Interna -->
+    <section class="bg-white border-b border-gray-200 sticky top-20 z-40">
+        <div class="max-w-7xl mx-auto px-4 md:px-20">
+            <nav class="internal-nav">
+                <a href="#palavras-presidente" class="internal-nav-link active">
+                    <i class="fas fa-quote-left"></i> Palavras do Presidente
+                </a>
+                <a href="#diretoria" class="internal-nav-link">
+                    <i class="fas fa-users-cog"></i> Diretoria
+                </a>
+                <a href="#conselhos" class="internal-nav-link">
+                    <i class="fas fa-gavel"></i> Conselhos
+                </a>
+                <a href="#ex-presidentes" class="internal-nav-link">
+                    <i class="fas fa-award"></i> Ex-Presidentes
+                </a>
+                <a href="#funcionarios" class="internal-nav-link">
+                    <i class="fas fa-id-badge"></i> Funcionários
+                </a>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Palavras do Presidente -->
+    <section id="palavras-presidente" class="section bg-white">
+        <div class="section-container">
+            <div class="grid md:grid-cols-3 gap-10">
+                <!-- Foto do Presidente -->
+                <div class="md:col-span-1 fade-in-left">
+                    <div class="president-photo-card">
+                        <div class="president-photo">
+                            <i class="fas fa-user-tie text-6xl text-gray-400"></i>
+                        </div>
+                        <div class="president-info">
+                            <h3 class="font-bold text-xl text-gray-900">Presidente</h3>
+                            <p class="text-blue-600">Gestão 2023-2027</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Texto do Discurso -->
+                <div class="md:col-span-2 fade-in-right delay-100">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-quote-left text-3xl text-blue-600 opacity-50"></i>
+                        <h2 class="section-title">Palavras do Presidente</h2>
+                    </div>
+                    
+                    <div class="president-speech">
+                        <p>
+                            Reunimo-nos mais uma vez para darmos sequência ao que o nosso fundador 
+                            <strong>Orlando Olivera</strong> imaginou em 1967: coordenarmos atividades de 
+                            lazer e bem-estar de servidores do Senado.
+                        </p>
+                        
+                        <p>
+                            Chegamos a mais de 56 anos de existência realizando por nossos associados 
+                            e por nossos colegas.
+                        </p>
+                        
+                        <p>
+                            Saiu da ASSEFE o embrião que dá vida ao nosso plano de saúde. Aqui foi gestado 
+                            o SIS que, por experiência de cada um de nós, é instrumento valioso para nossas 
+                            famílias. Fomos durante anos detentores daquela que foi a melhor creche de 
+                            Brasília. Vimos em nossa área de lazer crescerem nossos filhos em ambiente 
+                            saudável e de companheirismo. Assim continuará sendo nossa associação.
+                        </p>
+                        
+                        <p>
+                            Foi abraçado pela Presidência do Senado Federal o pedido de auxílio-alimentação 
+                            feito pela ASSEFE.
+                        </p>
+
+                        <p>
+                            Voltando ao cargo de presidente, tive a felicidade de compor uma chapa que traz 
+                            servidores que não haviam ainda participado como gestores da associação. Ao lado 
+                            deles colocamos 7 ex-presidentes na função de diretores e conselheiros, dentre 
+                            os 10 que estão entre nós. Isso nada mais é do que a prova de um interesse firme 
+                            na busca de realizações, encampado pelos que lideraram nossa categoria profissional.
+                        </p>
+
+                        <p>
+                            Somos servidores de uma casa que prima pelo rigor das regras, mas nosso espaço 
+                            no clube é de ritos singelos: rememorar colegas que se foram, festejar com 
+                            colegas que estão e talvez instruir colegas que chegarão.
+                        </p>
+
+                        <p>
+                            Ao voltar à ASSEFE já pude perceber que dispomos de um agrupamento de servidores 
+                            mais profissionais e com um empenho em bem atender aos nossos associados. Com 
+                            eles temos a sorte de contar.
+                        </p>
+
+                        <p>
+                            Peço a Deus que eu e meus colegas de direção, com a responsabilidade, 
+                            inteligência e lucidez que demonstraram e demonstram em suas vidas profissionais, 
+                            possamos dar bom caminho à Associação dos Servidores do Senado Federal.
+                        </p>
+
+                        <p>
+                            Que Deus ampare a todos os que passaram pela associação e nos dê força para 
+                            continuarmos essa trajetória.
+                        </p>
+
+                        <p class="text-blue-700 font-bold text-lg mt-6">
+                            Fé na missão!
+                        </p>
+
+                        <p class="text-sm text-gray-500 mt-4 italic">
+                            Discurso de posse em 2 de Dezembro de 2023
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diretoria Executiva -->
+    <section id="diretoria" class="section bg-gray-50">
+        <div class="section-container">
+            <div class="text-center mb-12 fade-in-up">
+                <h2 class="section-title">Diretoria Executiva</h2>
+                <p class="section-subtitle">Gestão 2023-2027</p>
+            </div>
+
+            <div class="team-grid">
+                <!-- Presidente -->
+                <div class="team-card fade-in-up delay-100">
+                    <div class="team-photo">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="team-info">
+                        <span class="team-role team-role-president">Presidente</span>
+                        <h3 class="team-name">A definir</h3>
+                    </div>
+                </div>
+
+                <!-- Vice-Presidente -->
+                <div class="team-card fade-in-up delay-200">
+                    <div class="team-photo">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="team-info">
+                        <span class="team-role">Vice-Presidente</span>
+                        <h3 class="team-name">A definir</h3>
+                    </div>
+                </div>
+
+                <!-- Diretor Administrativo -->
+                <div class="team-card fade-in-up delay-300">
+                    <div class="team-photo">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="team-info">
+                        <span class="team-role">Diretor Administrativo</span>
+                        <h3 class="team-name">A definir</h3>
+                    </div>
+                </div>
+
+                <!-- Diretor Financeiro -->
+                <div class="team-card fade-in-up delay-100">
+                    <div class="team-photo">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="team-info">
+                        <span class="team-role">Diretor Financeiro</span>
+                        <h3 class="team-name">A definir</h3>
+                    </div>
+                </div>
+
+                <!-- Diretor de Esportes -->
+                <div class="team-card fade-in-up delay-200">
+                    <div class="team-photo">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="team-info">
+                        <span class="team-role">Diretor de Esportes</span>
+                        <h3 class="team-name">A definir</h3>
+                    </div>
+                </div>
+
+                <!-- Diretor Social -->
+                <div class="team-card fade-in-up delay-300">
+                    <div class="team-photo">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="team-info">
+                        <span class="team-role">Diretor Social</span>
+                        <h3 class="team-name">A definir</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conselhos -->
+    <section id="conselhos" class="section bg-white">
+        <div class="section-container">
+            <!-- Conselho Deliberativo -->
+            <div class="mb-16 fade-in-up">
+                <div class="council-header-full council-deliberativo">
+                    <i class="fas fa-landmark"></i>
+                    <h3>Conselho Deliberativo</h3>
+                </div>
+                <div class="council-members-grid">
+                    <div class="council-member-card">
+                        <div class="council-member-photo">
+                            <i class="fas fa-user"></i>
+                            <!-- <img src="images/conselho/nome.jpg" alt="Nome"> -->
+                        </div>
+                        <div class="council-member-info">
+                            <span class="council-member-role">Presidente</span>
+                            <h4 class="council-member-name">A definir</h4>
+                        </div>
+                    </div>
+                    <div class="council-member-card">
+                        <div class="council-member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="council-member-info">
+                            <span class="council-member-role">Vice-Presidente</span>
+                            <h4 class="council-member-name">A definir</h4>
+                        </div>
+                    </div>
+                    <div class="council-member-card">
+                        <div class="council-member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="council-member-info">
+                            <span class="council-member-role">Secretário</span>
+                            <h4 class="council-member-name">A definir</h4>
+                        </div>
+                    </div>
+                    <div class="council-member-card">
+                        <div class="council-member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="council-member-info">
+                            <span class="council-member-role">Conselheiro</span>
+                            <h4 class="council-member-name">A definir</h4>
+                        </div>
+                    </div>
+                    <div class="council-member-card">
+                        <div class="council-member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="council-member-info">
+                            <span class="council-member-role">Conselheiro</span>
+                            <h4 class="council-member-name">A definir</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conselho Fiscal -->
+            <div class="fade-in-up delay-200">
+                <div class="council-header-full council-fiscal">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>Conselho Fiscal</h3>
+                </div>
+                <div class="council-members-grid">
+                    <div class="council-member-card">
+                        <div class="council-member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="council-member-info">
+                            <span class="council-member-role">Presidente</span>
+                            <h4 class="council-member-name">A definir</h4>
+                        </div>
+                    </div>
+                    <div class="council-member-card">
+                        <div class="council-member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="council-member-info">
+                            <span class="council-member-role">Vice-Presidente</span>
+                            <h4 class="council-member-name">A definir</h4>
+                        </div>
+                    </div>
+                    <div class="council-member-card">
+                        <div class="council-member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="council-member-info">
+                            <span class="council-member-role">Secretário</span>
+                            <h4 class="council-member-name">A definir</h4>
+                        </div>
+                    </div>
+                    <div class="council-member-card">
+                        <div class="council-member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="council-member-info">
+                            <span class="council-member-role">Conselheiro Suplente</span>
+                            <h4 class="council-member-name">A definir</h4>
+                        </div>
+                    </div>
+                    <div class="council-member-card">
+                        <div class="council-member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="council-member-info">
+                            <span class="council-member-role">Conselheiro Suplente</span>
+                            <h4 class="council-member-name">A definir</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria de Ex-Presidentes -->
+    <section id="ex-presidentes" class="section bg-gray-50">
+        <div class="section-container">
+            <div class="text-center mb-12 fade-in-up">
+                <h2 class="section-title">Galeria de Ex-Presidentes</h2>
+                <p class="section-subtitle">Aqueles que construíram a história da Assefe desde 1967</p>
+            </div>
+
+            <div class="expresidents-grid">
+                <!-- Ex-presidente 1 -->
+                <div class="expresident-card fade-in-up delay-100">
+                    <div class="expresident-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="expresident-info">
+                        <h4>Orlando Olivera</h4>
+                        <span>Fundador - 1967</span>
+                    </div>
+                </div>
+
+                <!-- Placeholders para outros ex-presidentes -->
+                <div class="expresident-card fade-in-up delay-200">
+                    <div class="expresident-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="expresident-info">
+                        <h4>Ex-Presidente</h4>
+                        <span>Gestão</span>
+                    </div>
+                </div>
+
+                <div class="expresident-card fade-in-up delay-300">
+                    <div class="expresident-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="expresident-info">
+                        <h4>Ex-Presidente</h4>
+                        <span>Gestão</span>
+                    </div>
+                </div>
+
+                <div class="expresident-card fade-in-up delay-100">
+                    <div class="expresident-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="expresident-info">
+                        <h4>Ex-Presidente</h4>
+                        <span>Gestão</span>
+                    </div>
+                </div>
+
+                <div class="expresident-card fade-in-up delay-200">
+                    <div class="expresident-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="expresident-info">
+                        <h4>Ex-Presidente</h4>
+                        <span>Gestão</span>
+                    </div>
+                </div>
+
+                <div class="expresident-card fade-in-up delay-300">
+                    <div class="expresident-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="expresident-info">
+                        <h4>Ex-Presidente</h4>
+                        <span>Gestão</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Funcionários -->
+    <section id="funcionarios" class="section bg-white">
+        <div class="section-container">
+            <div class="text-center mb-12 fade-in-up">
+                <h2 class="section-title">Nossa Equipe</h2>
+                <p class="section-subtitle">Os profissionais dedicados ao atendimento dos associados</p>
+            </div>
+
+            <div class="employees-grid">
+                <!-- Funcionário 1 -->
+                <div class="employee-card fade-in-up delay-100">
+                    <div class="employee-photo">
+                        <i class="fas fa-user"></i>
+                        <!-- <img src="images/equipe/nome.jpg" alt="Nome"> -->
+                    </div>
+                    <div class="employee-info">
+                        <h4 class="employee-name">Nome do Funcionário</h4>
+                        <span class="employee-role">Cargo / Função</span>
+                        <div class="employee-service-time">
+                            <i class="fas fa-clock"></i>
+                            <span>X anos de serviço</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Funcionário 2 -->
+                <div class="employee-card fade-in-up delay-200">
+                    <div class="employee-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="employee-info">
+                        <h4 class="employee-name">Nome do Funcionário</h4>
+                        <span class="employee-role">Cargo / Função</span>
+                        <div class="employee-service-time">
+                            <i class="fas fa-clock"></i>
+                            <span>X anos de serviço</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Funcionário 3 -->
+                <div class="employee-card fade-in-up delay-300">
+                    <div class="employee-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="employee-info">
+                        <h4 class="employee-name">Nome do Funcionário</h4>
+                        <span class="employee-role">Cargo / Função</span>
+                        <div class="employee-service-time">
+                            <i class="fas fa-clock"></i>
+                            <span>X anos de serviço</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Funcionário 4 -->
+                <div class="employee-card fade-in-up delay-100">
+                    <div class="employee-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="employee-info">
+                        <h4 class="employee-name">Nome do Funcionário</h4>
+                        <span class="employee-role">Cargo / Função</span>
+                        <div class="employee-service-time">
+                            <i class="fas fa-clock"></i>
+                            <span>X anos de serviço</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Funcionário 5 -->
+                <div class="employee-card fade-in-up delay-200">
+                    <div class="employee-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="employee-info">
+                        <h4 class="employee-name">Nome do Funcionário</h4>
+                        <span class="employee-role">Cargo / Função</span>
+                        <div class="employee-service-time">
+                            <i class="fas fa-clock"></i>
+                            <span>X anos de serviço</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Funcionário 6 -->
+                <div class="employee-card fade-in-up delay-300">
+                    <div class="employee-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="employee-info">
+                        <h4 class="employee-name">Nome do Funcionário</h4>
+                        <span class="employee-role">Cargo / Função</span>
+                        <div class="employee-service-time">
+                            <i class="fas fa-clock"></i>
+                            <span>X anos de serviço</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Funcionário 7 -->
+                <div class="employee-card fade-in-up delay-100">
+                    <div class="employee-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="employee-info">
+                        <h4 class="employee-name">Nome do Funcionário</h4>
+                        <span class="employee-role">Cargo / Função</span>
+                        <div class="employee-service-time">
+                            <i class="fas fa-clock"></i>
+                            <span>X anos de serviço</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Funcionário 8 -->
+                <div class="employee-card fade-in-up delay-200">
+                    <div class="employee-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="employee-info">
+                        <h4 class="employee-name">Nome do Funcionário</h4>
+                        <span class="employee-role">Cargo / Função</span>
+                        <div class="employee-service-time">
+                            <i class="fas fa-clock"></i>
+                            <span>X anos de serviço</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA - Associe-se -->
+    <section class="section hero-gradient text-white">
+        <div class="section-container text-center">
+            <h2 class="text-3xl md:text-4xl font-extrabold fade-in-up">Faça Parte da Nossa História</h2>
+            <p class="text-xl opacity-90 mt-4 max-w-2xl mx-auto fade-in-up delay-100">
+                Junte-se a milhares de servidores que já fazem parte da família Assefe
+            </p>
+            <div class="mt-8 fade-in-up delay-200">
+                <a href="#" class="btn btn-cta text-lg px-10 py-4">
+                    <i class="fas fa-user-plus"></i> Associe-se Agora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Logo e Descrição -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="images/logo.png" alt="Assefe Logo" class="w-12 h-12">
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Associação dos Servidores do Senado Federal.
+                    </p>
+                </div>
+
+                <!-- Links Rápidos -->
+                <div>
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="institucional.html">Institucional</a></li>
+                        <li></li>
+                        <li><a href="#">Convênios</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+
+                <!-- Redes Sociais -->
+                <div>
+                    <h3>Redes Sociais</h3>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Buscar -->
+                <div>
+                    <h3>Buscar</h3>
+                    <form class="footer-search" action="#" method="get">
+                        <input type="search" name="q" placeholder="Pesquise..." />
+                        <button type="submit" aria-label="Buscar">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                © <script>document.write(new Date().getFullYear());</script> 
+                Assefe - Associação dos Servidores do Senado Federal. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5561999024446" target="_blank" class="whatsapp-float" aria-label="Contato via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aposentados - Assefe</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Barra de Acessibilidade -->
+    <div class="accessibility-bar">
+        <div class="flex items-center gap-4">
+            <span class="cursor-pointer hover:underline">
+                <i class="fas fa-universal-access mr-1"></i> Acessibilidade
+            </span>
+        </div>
+        <div class="controls">
+            <div class="font-control">
+                <span>Tamanho:</span>
+                <input type="range" min="12" max="24" value="16" class="font-slider" id="fontSlider">
+            </div>
+            <button onclick="toggleContrast()" class="hover:text-blue-600">
+                <i class="fas fa-adjust mr-1"></i> Contraste
+            </button>
+        </div>
+    </div>
+
+    <!-- Header Principal -->
+    <header class="header">
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Assefe Logo" class="w-15 h-20 py-2">
+                </a>
+            </div>
+
+            <!-- Navegação Desktop -->
+            <nav class="nav-desktop">
+                <a href="index.html">Home</a>
+                
+                <!-- Dropdown Lazer -->
+                <div class="dropdown">
+                    <button class="dropdown-btn">
+                        Lazer <i class="fas fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Piscinas</a>
+                        <a href="#">Esportes</a>
+                        <a href="#">Quadras</a>
+                        <a href="#">Churrasqueira</a>
+                    </div>
+                </div>
+                
+                <a href="institucional.html">Institucional</a>
+                <a href="#">Convênios</a>
+                <a href="eventos.html">Eventos</a>
+                <a href="aposentados.html" class="text-blue-600 font-semibold">Aposentados</a>
+                
+            </nav>
+
+            <!-- Ações do Header -->
+            <div class="flex items-center gap-3">
+                <i class="fas fa-search text-gray-400 cursor-pointer hover:text-blue-600"></i>
+                <a href="#" class="btn btn-primary hidden sm:inline-flex">Associe-se</a>
+                
+                <!-- Botão Menu Mobile -->
+                <button id="mobileMenuButton" class="mobile-menu-btn" aria-controls="mobileMenu" aria-expanded="false" aria-label="Abrir menu">
+                    <i id="mobileMenuIcon" class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Overlay Menu Mobile -->
+        <div id="mobileMenuOverlay" class="mobile-menu-overlay" aria-hidden="true"></div>
+
+        <!-- Menu Mobile -->
+        <nav id="mobileMenu" class="mobile-menu">
+            <div class="mobile-menu-content">
+                <a href="index.html">Home</a>
+
+                <!-- Submenu Lazer -->
+                <details class="mobile-submenu">
+                    <summary>
+                        <span>Lazer</span>
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </summary>
+                    <div class="mobile-submenu-content">
+                        <a href="#">Piscinas</a>
+                        <a href="#">Esportes</a>
+                        <a href="#">Quadras</a>
+                        <a href="#">Churrasqueira</a>
+                    </div>
+                </details>
+
+                <a href="institucional.html">Institucional</a>
+                <a href="#">Convênios</a>
+                <a href="eventos.html">Eventos</a>
+                <a href="aposentados.html" class="text-blue-600 font-semibold">Aposentados</a>
+                
+                
+                <!-- Botão Associe-se no Mobile -->
+                <div class="pt-4 border-t border-gray-100 mt-4">
+                    <a href="#" class="btn btn-primary w-full justify-center">Associe-se</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Banner da Página -->
+    <section class="page-banner hero-gradient text-white">
+        <div class="max-w-7xl mx-auto px-4 md:px-20 py-16 text-center">
+            <nav class="breadcrumb fade-in-up">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right mx-2 text-xs opacity-60"></i>
+                <span>Aposentados</span>
+            </nav>
+            <h1 class="text-4xl md:text-5xl font-extrabold mt-4 fade-in-up delay-100">Aposentados</h1>
+            <p class="text-xl opacity-90 mt-4 max-w-2xl mx-auto fade-in-up delay-200">
+                Histórias e depoimentos dos colegas assefeanos aposentados
+            </p>
+        </div>
+    </section>
+
+    <!-- Introdução -->
+    <section class="section bg-white">
+        <div class="section-container">
+            <div class="max-w-4xl mx-auto text-center fade-in-up">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-blue-100 text-blue-600 rounded-full mb-6">
+                    <i class="fas fa-book-open text-3xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Memórias e Legados</h2>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    Aqui nesta página colocaremos matérias de interesse também dos colegas assefeanos aposentados 
+                    e depoimentos desses servidores. Conheça as histórias de vida e as trajetórias profissionais 
+                    de quem dedicou anos de trabalho ao Senado Federal.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grid de Depoimentos -->
+    <section class="section bg-gray-50">
+        <div class="section-container">
+            <h2 class="section-title fade-in-up">
+                <i class="fas fa-comments text-blue-600"></i> Depoimentos
+            </h2>
+            
+            <div class="retiree-grid">
+                
+                <!-- Rui Oscar Dias Janiques -->
+                <article class="retiree-card fade-in-up">
+                    <div class="retiree-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="retiree-content">
+                        <h3 class="retiree-name">Rui Oscar Dias Janiques</h3>
+                        <p class="retiree-excerpt">
+                            Cresci em um ambiente que despertava muitas curiosidades. Meu pai sempre manteve 
+                            em casa uma oficina repleta de equipamentos e materiais de eletrônica, onde 
+                            costumávamos passar horas à noite e, quando eu deixava, ele consertava os aparelhos 
+                            elétricos e eletrônicos, nossos e dos nossos vizinhos. As chaves de fenda e 
+                            alicates eram muitos e logo aprendi a manuseá-los, a sintonizar rádios, a descascar 
+                            fios e fazer soldas.
+                        </p>
+                        <a href="https://assefe.com.br/wp-content/uploads/2025/06/Rui-Oscar-2.pdf" 
+                           target="_blank" class="retiree-link">
+                            <i class="fas fa-file-pdf"></i> Ver depoimento completo
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Maria Ivoneide Vasconcelos Soares -->
+                <article class="retiree-card fade-in-up delay-100">
+                    <div class="retiree-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="retiree-content">
+                        <h3 class="retiree-name">Maria Ivoneide Vasconcelos Soares</h3>
+                        <p class="retiree-excerpt">
+                            Fiquei bastante feliz por ter sido escolhida para compor o grupo de funcionários 
+                            aposentados dessa renomada instituição que é o Senado Federal para participar 
+                            de um livro que resgata nossa trilha de trabalho e dedicação a esta Casa. 
+                            Entrei no Senado em julho de 1975. Comecei minha carreira como auxiliar de 
+                            escritório no Centro Gráfico na implantação do sistema contábil.
+                        </p>
+                        <a href="https://assefe.com.br/wp-content/uploads/2024/10/Maria-Ivoneide-Vasconcelos-Soares.pdf" 
+                           target="_blank" class="retiree-link">
+                            <i class="fas fa-file-pdf"></i> Ver depoimento completo
+                        </a>
+                    </div>
+                </article>
+
+                <!-- James Raymundo M. Carvalho -->
+                <article class="retiree-card fade-in-up delay-200">
+                    <div class="retiree-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="retiree-content">
+                        <h3 class="retiree-name">James Raymundo M. Carvalho</h3>
+                        <p class="retiree-excerpt">
+                            Foi em frente ao mar que descobri que a hora de despedir-me havia chegado. Antes 
+                            do meu retorno oficial ao trabalho depois das minhas férias, cheguei a Brasília 
+                            e entrei na sala do Paulo (Meira), na época diretor da Secretaria de Recursos 
+                            Humanos, para anunciar a minha saída definitiva. Essa era a despedida de mais de 
+                            32 anos trabalhando no Senado Federal.
+                        </p>
+                        <a href="#" class="retiree-link retiree-link-disabled">
+                            <i class="fas fa-file-pdf"></i> Ver depoimento completo
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Lourival Francisco Lopes -->
+                <article class="retiree-card fade-in-up">
+                    <div class="retiree-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="retiree-content">
+                        <h3 class="retiree-name">Lourival Francisco Lopes</h3>
+                        <p class="retiree-excerpt">
+                            É uma alegria discorrer sobre o tempo em que estive no Senado Federal na 
+                            condição de servidor. Alegria porque foi um tempo de conhecimento, de emoções, de 
+                            afazeres múltiplos. Começo relembrando os primórdios, o tempo de 1964, quando fui 
+                            estimulado por pessoa da família que trabalhava no Senado, vinda do Rio de Janeiro, 
+                            que me dizia: "vai para o Senado, entra para o Senado, faça concurso".
+                        </p>
+                        <a href="https://assefe.com.br/wp-content/uploads/2024/08/Lourival-Francisco-Lopes.pdf" 
+                           target="_blank" class="retiree-link">
+                            <i class="fas fa-file-pdf"></i> Ver depoimento completo
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Vicente Sebastião de Oliveira -->
+                <article class="retiree-card fade-in-up delay-100">
+                    <div class="retiree-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="retiree-content">
+                        <h3 class="retiree-name">Vicente Sebastião de Oliveira</h3>
+                        <p class="retiree-excerpt">
+                            Era 1º de agosto de 1970 quando eu, um sertanejo pernambucano, fui admitido no 
+                            Centro Gráfico do Senado Federal (Cegraf), na função de mensageiro, e, em 2 de 
+                            novembro de 1973, no Senado Federal como auxiliar de pesquisa. Fui aprovado no 
+                            concurso interno de contador do quadro CLT, no ano de 1974. Na história do Senado, 
+                            fui, legalmente, o primeiro contador do quadro CLT.
+                        </p>
+                        <a href="https://assefe.com.br/wp-content/uploads/2024/07/Vicente-Sebastiao-de-Oliveira.pdf" 
+                           target="_blank" class="retiree-link">
+                            <i class="fas fa-file-pdf"></i> Ver depoimento completo
+                        </a>
+                    </div>
+                </article>
+
+                <!-- José Farias Maranhão -->
+                <article class="retiree-card fade-in-up delay-200">
+                    <div class="retiree-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="retiree-content">
+                        <h3 class="retiree-name">José Farias Maranhão</h3>
+                        <p class="retiree-excerpt">
+                            Iniciei minhas atividades no almoxarifado, mas sempre que possível ajudando nas 
+                            oficinas, principalmente nas seções Tipográfica e de Encadernação. Em 1966, fui 
+                            para Seção de Encadernação, passando a receber instruções do processo de 
+                            encadernação de um profissional instrutor. Era o início; posteriormente 
+                            transformar-se-ia em Seção de Acabamento que estava em formação.
+                        </p>
+                        <a href="https://assefe.com.br/wp-content/uploads/2024/05/Jose-Farias-Maranhao-2.pdf" 
+                           target="_blank" class="retiree-link">
+                            <i class="fas fa-file-pdf"></i> Ver depoimento completo
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Wesley Gonçalves de Brito -->
+                <article class="retiree-card fade-in-up">
+                    <div class="retiree-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="retiree-content">
+                        <h3 class="retiree-name">Wesley Gonçalves de Brito</h3>
+                        <p class="retiree-excerpt">
+                            Consigo me lembrar muito bem do mês de setembro de 1984, quando entrei no Senado 
+                            Federal, momento marcante da minha vida pessoal e profissional. Havia iniciado a 
+                            minha vida profissional no Poder Executivo, Ministério da Agricultura. Em 1982 fui 
+                            convidado a mudar para o Poder Legislativo, ocupando a chefia de gabinete do 
+                            Deputado federal Sebastião Ataíde.
+                        </p>
+                        <a href="https://assefe.com.br/wp-content/uploads/2024/05/Wesley-Goncalves-de-Brito_removed_removed.pdf" 
+                           target="_blank" class="retiree-link">
+                            <i class="fas fa-file-pdf"></i> Ver depoimento completo
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Cantídio Lima Vieira -->
+                <article class="retiree-card fade-in-up delay-100">
+                    <div class="retiree-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="retiree-content">
+                        <h3 class="retiree-name">Cantídio Lima Vieira</h3>
+                        <p class="retiree-excerpt">
+                            "O Senado é melhor do que o céu, porque nem é preciso morrer para estar nele." 
+                            Esta frase, atribuída ao senador Darcy Ribeiro, poderia resumir a minha passagem 
+                            no Senado Federal. Sou sergipano, médico cardiologista formado pela Universidade 
+                            Federal de Sergipe em 1976. Vim para Brasília e entrei no Senado em 78, 
+                            desempenhando inicialmente a função de técnico de informática no Prodasen.
+                        </p>
+                        <a href="https://assefe.com.br/wp-content/uploads/2024/04/Cantidio-Lima-Vieira-site.pdf" 
+                           target="_blank" class="retiree-link">
+                            <i class="fas fa-file-pdf"></i> Ver depoimento completo
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Maria Elisa de Gusmão Neves Stracquadanio -->
+                <article class="retiree-card fade-in-up delay-200">
+                    <div class="retiree-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="retiree-content">
+                        <h3 class="retiree-name">Maria Elisa de Gusmão Neves Stracquadanio</h3>
+                        <p class="retiree-excerpt">
+                            "Agradeço a Deus todas as oportunidades que me foram dadas desde sempre e por 
+                            ter tido e mantido tão estimados colegas e amigos até hoje." Minha relação com o 
+                            Senado Federal remonta à época em que minha mãe estava grávida de mim. Não se 
+                            espantem. Desde bebê vivenciei momentos históricos, decisões de grande importância 
+                            para o País.
+                        </p>
+                        <a href="https://assefe.com.br/wp-content/uploads/2024/03/Maria-Elisa.pdf" 
+                           target="_blank" class="retiree-link">
+                            <i class="fas fa-file-pdf"></i> Ver depoimento completo
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Miguel Arcanjo Batista -->
+                <article class="retiree-card fade-in-up">
+                    <div class="retiree-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="retiree-content">
+                        <h3 class="retiree-name">Miguel Arcanjo Batista</h3>
+                        <p class="retiree-excerpt">
+                            "Sou muito grato ao Senado por ter me possibilitado viver e testemunhar tantos 
+                            momentos, discursos memoráveis e conhecer algumas das pessoas mais competentes e 
+                            profissionais com quem trabalhei." Eu sou Miguel Arcanjo Batista e estou aposentado 
+                            há 28 anos de uma profissão que já quase não existe mais. Está lá na minha carteira 
+                            de trabalho: linotipista.
+                        </p>
+                        <a href="https://assefe.com.br/wp-content/uploads/2024/02/Miguel-Arcanjo-Batista.pdf" 
+                           target="_blank" class="retiree-link">
+                            <i class="fas fa-file-pdf"></i> Ver depoimento completo
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Heraldo de Abreu Coutinho -->
+                <article class="retiree-card fade-in-up delay-100">
+                    <div class="retiree-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="retiree-content">
+                        <h3 class="retiree-name">Heraldo de Abreu Coutinho</h3>
+                        <p class="retiree-excerpt">
+                            Meu nome é Heraldo de Abreu Coutinho, nasci no Rio de Janeiro em 17 de dezembro 
+                            de 1930. Vim para Brasília, no ano de 1958, pela companhia americana RCA Victor 
+                            Radio S.A, na qual trabalhava para instalar os equipamentos eletrônicos para 
+                            inauguração da nova capital. A RCA foi a empresa vencedora da licitação, junto à 
+                            Novacap, para fornecer e instalar os equipamentos eletrônicos.
+                        </p>
+                        <a href="https://assefe.com.br/wp-content/uploads/2024/01/Heraldo-de-Abreu-Coutinho.pdf" 
+                           target="_blank" class="retiree-link">
+                            <i class="fas fa-file-pdf"></i> Ver depoimento completo
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA - Compartilhe sua História -->
+    <section class="section hero-gradient text-white">
+        <div class="section-container text-center">
+            <h2 class="text-3xl md:text-4xl font-extrabold fade-in-up">Compartilhe Sua História</h2>
+            <p class="text-xl opacity-90 mt-4 max-w-2xl mx-auto fade-in-up delay-100">
+                Você é aposentado do Senado e gostaria de compartilhar sua trajetória? Entre em contato conosco!
+            </p>
+            <div class="mt-8 fade-in-up delay-200">
+                <a href="mailto:contato@assefe.com.br" class="btn btn-cta text-lg px-10 py-4">
+                    <i class="fas fa-envelope"></i> Enviar Depoimento
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Logo e Descrição -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="images/logo.png" alt="Assefe Logo" class="w-12 h-12">
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Associação dos Servidores do Senado Federal.
+                    </p>
+                </div>
+
+                <!-- Links Rápidos -->
+                <div>
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="institucional.html">Institucional</a></li>
+                        <li></li>
+                        <li><a href="aposentados.html">Aposentados</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+
+                <!-- Redes Sociais -->
+                <div>
+                    <h3>Redes Sociais</h3>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Buscar -->
+                <div>
+                    <h3>Buscar</h3>
+                    <form class="footer-search" action="#" method="get">
+                        <input type="search" name="q" placeholder="Pesquise..." />
+                        <button type="submit" aria-label="Buscar">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                © <script>document.write(new Date().getFullYear());</script> 
+                Assefe - Associação dos Servidores do Senado Federal. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5561999024446" target="_blank" class="whatsapp-float" aria-label="Contato via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

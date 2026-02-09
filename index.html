@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assefe - Clube dos Servidores</title>
+    
+    <!-- Tailwind CSS (CDN para prototipagem, pode ser substituído por build local) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Barra de Acessibilidade -->
+    <div class="accessibility-bar">
+        <div class="flex items-center gap-4">
+            <span class="cursor-pointer hover:underline">
+                <i class="fas fa-universal-access mr-1"></i> Acessibilidade
+            </span>
+        </div>
+        <div class="controls">
+            <div class="font-control">
+                <span>Tamanho:</span>
+                <input type="range" min="12" max="24" value="16" class="font-slider" id="fontSlider">
+            </div>
+            <button onclick="toggleContrast()" class="hover:text-blue-600">
+                <i class="fas fa-adjust mr-1"></i> Contraste
+            </button>
+        </div>
+    </div>
+
+    <!-- Header Principal -->
+    <header class="header">
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Assefe Logo" class="w-15 h-20 py-2">
+                </a>
+            </div>
+
+            <!-- Navegação Desktop -->
+            <nav class="nav-desktop">
+                <a href="index.html">Home</a>
+                
+                <!-- Dropdown Lazer -->
+                <div class="dropdown">
+                    <button class="dropdown-btn">
+                        Lazer <i class="fas fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Piscinas</a>
+                        <a href="#">Esportes</a>
+                        <a href="#">Quadras</a>
+                        <a href="#">Churrasqueira</a>
+                    </div>
+                </div>
+                
+                <a href="institucional.html">Institucional</a>
+                <a href="#">Convênios</a>
+                <a href="eventos.html">Eventos</a>
+                <a href="aposentados.html">Aposentados</a>
+                
+            </nav>
+
+            <!-- Ações do Header -->
+            <div class="flex items-center gap-3">
+                <i class="fas fa-search text-gray-400 cursor-pointer hover:text-blue-600"></i>
+                <a href="#" class="btn btn-primary hidden sm:inline-flex">Associe-se</a>
+                
+                <!-- Botão Menu Mobile -->
+                <button id="mobileMenuButton" class="mobile-menu-btn" aria-controls="mobileMenu" aria-expanded="false" aria-label="Abrir menu">
+                    <i id="mobileMenuIcon" class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Overlay Menu Mobile -->
+        <div id="mobileMenuOverlay" class="mobile-menu-overlay" aria-hidden="true"></div>
+
+        <!-- Menu Mobile -->
+        <nav id="mobileMenu" class="mobile-menu">
+            <div class="mobile-menu-content">
+                <a href="index.html">Home</a>
+
+                <!-- Submenu Lazer - CORRIGIDO -->
+                <details class="mobile-submenu">
+                    <summary>
+                        <span>Lazer</span>
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </summary>
+                    <div class="mobile-submenu-content">
+                        <a href="#">Piscinas</a>
+                        <a href="#">Esportes</a>
+                        <a href="#">Quadras</a>
+                        <a href="#">Churrasqueira</a>
+                    </div>
+                </details>
+
+                <a href="institucional.html">Institucional</a>
+                <a href="#">Convênios</a>
+                <a href="eventos.html">Eventos</a>
+                <a href="aposentados.html">Aposentados</a>
+                
+                
+                <!-- Botão Associe-se no Mobile -->
+                <div class="pt-4 border-t border-gray-100 mt-4">
+                    <a href="#" class="btn btn-primary w-full justify-center">Associe-se</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero hero-gradient text-white">
+        <div class="hero-container">
+            <div class="fade-in-left">
+                <h1>Seja um associado da Assefe</h1>
+                <p class="hero-subtitle">O clube dos servidores do Senado Federal</p>
+                <p class="hero-description">
+                    A Assefe oferece um espaço de lazer, integração e benefícios exclusivos 
+                    para fortalecer a comunidade de servidores do Senado Federal.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-cta">
+                        <i class="fas fa-user-plus"></i> Associe-se Agora
+                    </a>
+                    <a href="tel:+5561999024446" class="btn btn-outline">
+                        <i class="fas fa-phone-alt"></i> Contato: 61 9.9902-4446
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image fade-in-right delay-200">
+                <img src="images/clube_assefe.png" alt="Imagem de Lazer Assefe" class="max-h-64">
+            </div>
+        </div>
+    </section>
+
+    <!-- Acesso Rápido -->
+    <section class="section bg-gray-50">
+        <div class="section-container">
+            <div class="text-center mb-12 fade-in-up">
+                <h2 class="section-title">Acesso Rápido</h2>
+                <p class="section-subtitle">Encontre rapidamente o que você procura</p>
+            </div>
+            
+            <div class="quick-access-grid">
+                <div class="quick-access-card border-t-4 border-blue-500 fade-in-up delay-100">
+                    <i class="fas fa-chair text-blue-600"></i>
+                    <h3>Espaço do Aposentado</h3>
+                    <p class="text-blue-600">Programas e benefícios exclusivos</p>
+                </div>
+                
+                <div class="quick-access-card border-t-4 border-green-500 fade-in-up delay-200">
+                    <i class="fas fa-leaf text-green-600"></i>
+                    <h3>Sustentabilidade</h3>
+                    <p class="text-green-600">Iniciativas ambientais da Assefe</p>
+                </div>
+                
+                <div class="quick-access-card border-t-4 border-yellow-500 fade-in-up delay-300">
+                    <i class="fas fa-concierge-bell text-yellow-500"></i>
+                    <h3>Serviços</h3>
+                    <p class="text-yellow-600">Conheça todos os nossos serviços</p>
+                </div>
+                
+                <a href="eventos.html" class="quick-access-card border-t-4 border-purple-500 fade-in-up delay-400">
+                    <i class="fas fa-calendar-alt text-purple-600"></i>
+                    <h3>Calendário de Eventos</h3>
+                    <p class="text-purple-600">Veja os próximos eventos</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notícias e Eventos -->
+    <section class="section bg-gray-100">
+        <div class="section-container">
+            <div class="fade-in-up">
+                <h2 class="section-title">Últimas Notícias e Eventos</h2>
+                <p class="section-subtitle mb-10">Fique por dentro das novidades e eventos da Assefe</p>
+            </div>
+            
+            <div class="news-grid">
+                <!-- Card 1 -->
+                <article class="news-card fade-in-up delay-100">
+                    <div class="news-card-image bg-blue-600">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <div class="news-card-content">
+                        <div class="news-card-meta">
+                            <span class="news-card-tag bg-blue-50 text-blue-600">EVENTOS</span>
+                            <span>15 de Outubro de 2025</span>
+                        </div>
+                        <h3>Assefe celebra o Dia das Crianças com...</h3>
+                        <a href="#" class="news-card-link">
+                            Leia mais <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- Card 2 -->
+                <article class="news-card fade-in-up delay-200">
+                    <div class="news-card-image bg-emerald-500">
+                        <i class="fas fa-ice-cream"></i>
+                    </div>
+                    <div class="news-card-content">
+                        <div class="news-card-meta">
+                            <span class="news-card-tag bg-emerald-50 text-emerald-600">CELEBRAÇÃO</span>
+                            <span>20 de Setembro de 2025</span>
+                        </div>
+                        <h3>Assefe comemora 58 anos resgatando o...</h3>
+                        <a href="#" class="news-card-link">
+                            Leia mais <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- Card 3 -->
+                <article class="news-card fade-in-up delay-300">
+                    <div class="news-card-image bg-blue-900">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="news-card-content">
+                        <div class="news-card-meta">
+                            <span class="news-card-tag bg-gray-100 text-gray-600">CONVÊNIOS</span>
+                            <span>10 de Janeiro de 2026</span>
+                        </div>
+                        <h3>Novo convênio com Embratur permite...</h3>
+                        <a href="#" class="news-card-link">
+                            Leia mais <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mês a Mês - CTA -->
+    <section id="mes-a-mes" class="section bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white">
+        <div class="section-container">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Texto -->
+                <div class="fade-in-up">
+                    <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-medium mb-4">
+                        <i class="fas fa-shield-alt mr-2"></i> Transparência
+                    </span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">
+                        Mês a Mês
+                    </h2>
+                    <p class="text-xl opacity-90 mb-6 leading-relaxed">
+                        Acompanhe todos os serviços de manutenção realizados no clube mensalmente. A Assefe preza pela transparência em todas as ações.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Relatórios mensais detalhados</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Fotos das obras e manutenções</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Histórico completo disponível</span>
+                        </li>
+                    </ul>
+                    <a href="mes-a-mes.html" class="btn btn-cta text-lg px-8 py-4 inline-flex items-center gap-2">
+                        <i class="fas fa-tools"></i> Ver Manutenções
+                    </a>
+                </div>
+                
+                <!-- Preview Card -->
+                <div class="fade-in-up delay-200">
+                    <div class="bg-white rounded-2xl p-6 text-gray-800 shadow-2xl">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold text-blue-600">
+                                <i class="fas fa-calendar-alt mr-2"></i> Dezembro 2025
+                            </h3>
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+                                Atualizado
+                            </span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                                <span class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
+                                <p class="text-sm">Roçagem e limpeza do jardim da entrada do clube.</p>
+                            </div>
+                            <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                                <span class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
+                                <p class="text-sm">Capina e limpeza do parquinho.</p>
+                            </div>
+                            <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                                <span class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
+                                <p class="text-sm">Corte da grama nas áreas do clube.</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-200 text-center">
+                            <a href="mes-a-mes.html" class="text-blue-600 font-semibold hover:text-blue-800">
+                                Ver todos os 8 itens <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefícios e Convênios -->
+    <section class="section bg-white">
+        <div class="section-container">
+            <div class="mb-12 fade-in-up">
+                <h2 class="section-title">Benefícios e Convênios</h2>
+            </div>
+
+            <div class="benefits-grid">
+                <!-- Piscinas -->
+                <div class="benefit-card fade-in-up delay-100">
+                    <div class="benefit-icon bg-blue-50 text-blue-700">
+                        <i class="fas fa-person-swimming"></i>
+                    </div>
+                    <h3>Piscinas</h3>
+                    <p>Acesse piscinas olímpicas e infantis com excelente infraestrutura.</p>
+                </div>
+
+                <!-- Academia -->
+                <div class="benefit-card fade-in-up delay-200">
+                    <div class="benefit-icon bg-emerald-50 text-emerald-700">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>Academia</h3>
+                    <p>Equipamentos modernos e profissionais qualificados para te acompanhar.</p>
+                </div>
+
+                <!-- Restaurante -->
+                <div class="benefit-card fade-in-up delay-300">
+                    <div class="benefit-icon bg-amber-50 text-amber-700">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Restaurante</h3>
+                    <p>Gastronomia de qualidade com pratos variados para toda a família.</p>
+                </div>
+
+                <!-- Quadras -->
+                <div class="benefit-card fade-in-up delay-400">
+                    <div class="benefit-icon bg-violet-50 text-violet-700">
+                        <i class="fas fa-volleyball-ball"></i>
+                    </div>
+                    <h3>Quadras</h3>
+                    <p>Quadras de tênis, futebol society, vôlei e muito mais para você.</p>
+                </div>
+
+                <!-- Salão de Festas -->
+                <div class="benefit-card fade-in-up delay-500">
+                    <div class="benefit-icon bg-rose-50 text-rose-700">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3>Salão de Festas</h3>
+                    <p>Espaço amplo e completo para suas comemorações especiais.</p>
+                </div>
+
+                <!-- Convênios -->
+                <div class="benefit-card fade-in-up delay-600">
+                    <div class="benefit-icon bg-teal-50 text-teal-700">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Convênios</h3>
+                    <p>Descontos exclusivos em diversos estabelecimentos parceiros.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reserva de Espaços -->
+    <section class="section bg-gray-50" id="reserve">
+        <div class="section-container text-center">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 fade-in-up">
+                Reserva de Churrasqueira
+            </h2>
+            <p class="text-gray-600 mt-3 max-w-2xl mx-auto fade-in-up delay-100">
+                Organize seus eventos com a gente! Temos espaços modernos e equipados para suas reuniões e celebrações.
+            </p>
+
+            <div class="mt-10 scale-in delay-200">
+                <div class="reservation-box">
+                    <div class="reservation-phone">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+5561999024446">61 9.9902-4446</a>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-4">
+                        Ligue agora e reserve seu espaço! Diga o número do espaço desejado.
+                    </p>
+                    <div class="mt-6">
+                        <a href="https://wa.me/5561999024446" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-calendar-check"></i> Fazer Reserva
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustentabilidade -->
+    <section class="section bg-white">
+        <div class="section-container">
+            <div class="text-center mb-12 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">
+                    Sustentabilidade e Responsabilidade Social
+                </h2>
+            </div>
+
+            <div class="sustainability-grid">
+                <div class="sustainability-item fade-in-left delay-100">
+                    <h3 class="text-emerald-700">
+                        <i class="fas fa-leaf"></i>
+                        <span>Nosso Compromisso</span>
+                    </h3>
+                    <p>
+                        A Assefe está comprometida com práticas sustentáveis que beneficiam nossos 
+                        associados e o meio ambiente. Implementamos programas de conservação de 
+                        energia, gestão de resíduos e preservação de áreas verdes.
+                    </p>
+                </div>
+
+                <div class="sustainability-item fade-in-right delay-200">
+                    <h3 class="text-blue-700">
+                        <i class="fas fa-people-group"></i>
+                        <span>Comunidade</span>
+                    </h3>
+                    <p>
+                        Promovemos ações que fortalecem a comunidade de servidores, oferecendo 
+                        espaços de integração, programas culturais e benefícios que melhoram 
+                        a qualidade de vida.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localização e Clima -->
+    <section class="section bg-gray-100">
+        <div class="section-container">
+            <div class="text-center mb-12 fade-in-up">
+                <h2 class="section-title">Localização e Clima</h2>
+                <p class="section-subtitle">Encontre-nos e confira as condições do tempo</p>
+            </div>
+
+            <div class="location-grid">
+                <!-- Widget de Clima -->
+                <div class="weather-card fade-in-left delay-100">
+                    <h3 class="weather-title">
+                        <i class="fas fa-cloud-sun"></i> Clima em tempo real
+                    </h3>
+                    <div class="weather-widget">
+                        <div class="weather-location">Brasília, DF</div>
+                        <div class="weather-main">
+                            <div class="weather-temp" id="weatherTemp">--°C</div>
+                            <div class="weather-icon" id="weatherIcon">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </div>
+                            <div class="weather-desc" id="weatherDesc">Carregando...</div>
+                        </div>
+                        <div class="weather-details">
+                            <div class="weather-detail">
+                                <i class="fas fa-wind"></i>
+                                <span id="weatherWind">-- m/s</span>
+                            </div>
+                            <div class="weather-detail">
+                                <i class="fas fa-droplet"></i>
+                                <span id="weatherHumidity">--%</span>
+                            </div>
+                            <div class="weather-detail">
+                                <i class="fas fa-temperature-half"></i>
+                                <span id="weatherFeels">--°C</span>
+                            </div>
+                        </div>
+                        <div class="weather-forecast" id="weatherForecast">
+                            <!-- Previsão por hora será inserida via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mapa e Endereço -->
+                <div class="map-card fade-in-right delay-200">
+                    <h3 class="map-title">
+                        <i class="fas fa-map-marker-alt"></i> Como chegar
+                    </h3>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3838.9993726666!2d-47.8973!3d-15.7871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a3b0d1c8f9a9b%3A0x1234567890abcdef!2sSt.%20de%20Clubes%20Esportivos%20Sul%20-%20Asa%20Sul%2C%20Bras%C3%ADlia%20-%20DF!5e0!3m2!1spt-BR!2sbr!4v1234567890" 
+                            width="100%" 
+                            height="250" 
+                            style="border:0; border-radius: 12px;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div class="address-info">
+                        <div class="address-line">
+                            <i class="fas fa-location-dot text-blue-600"></i>
+                            <div>
+                                <strong>Endereço:</strong><br>
+                                St. de Clubes Esportivos Sul Trecho 1 Lote 07<br>
+                                Asa Sul, Brasília - DF
+                            </div>
+                        </div>
+                        <div class="address-actions">
+                            <a href="https://www.google.com/maps/dir//St.+de+Clubes+Esportivos+Sul+Trecho+1+-+Asa+Sul,+Bras%C3%ADlia+-+DF" 
+                               target="_blank" 
+                               class="btn btn-primary btn-sm">
+                                <i class="fas fa-directions"></i> Traçar Rota
+                            </a>
+                            <a href="https://www.waze.com/ul?ll=-15.7871,-47.8973&navigate=yes" 
+                               target="_blank" 
+                               class="btn btn-waze btn-sm">
+                                <i class="fab fa-waze"></i> Abrir no Waze
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Logo e Descrição -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="images/logo.png" alt="Assefe Logo" class="w-12 h-12">
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Associação dos Servidores do Senado Federal.
+                    </p>
+                </div>
+
+                <!-- Links Rápidos -->
+                <div>
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="institucional.html">Institucional</a></li>
+                        <li></li>
+                        <li><a href="#">Convênios</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+
+                <!-- Redes Sociais -->
+                <div>
+                    <h3>Redes Sociais</h3>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Buscar -->
+                <div>
+                    <h3>Buscar</h3>
+                    <form class="footer-search" action="#" method="get">
+                        <input type="search" name="q" placeholder="Pesquise..." />
+                        <button type="submit" aria-label="Buscar">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                © <script>document.write(new Date().getFullYear());</script> 
+                Assefe - Associação dos Servidores do Senado Federal. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5561999024446" target="_blank" class="whatsapp-float" aria-label="Contato via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
